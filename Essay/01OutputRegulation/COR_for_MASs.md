@@ -3,8 +3,7 @@
 #### 1. 引言
 **线性多智能体系统模型**：
 $$ \begin{aligned}\dot{x}_i &=A_i x_i+B_i u_i+E_i \\
-e_i &=C_i x_i+D_i u_i+F_i v . \quad i=1, \ldots, N
-\end{aligned} $$
+e_i &=C_i x_i+D_i u_i+F_i v . \quad i=1, \ldots, N\end{aligned} $$
 
 **外系统模型**：$$ \dot{v}=Sv $$
 
