@@ -6,6 +6,11 @@
 $$ \begin{aligned}\dot{x}_i &=A_i x_i+B_i u_i+E_i \\
 e_i &=C_i x_i+D_i u_i+F_i v . \quad i=1, \ldots, N\end{aligned} \tag{1.1} $$
 
+* $x_i\in \mathbb{R}^{n_i}$：子系统状态；
+* $e_i\in \mathbb{R}^{p_i}$：跟踪误差；
+* $u_i\in \mathbb{R}^{m_i}$：控制输入；
+* $v\in \mathbb{R}^{q}$：外部参考信号或待抑制的干扰.
+
 **外系统模型**：
 
 $$ \dot{v}=Sv \tag{1.2} $$
@@ -20,6 +25,11 @@ $$ \dot{v}=Sv \tag{1.2} $$
     $$ \operatorname{rank}\left[\begin{array}{cc}
         A_i-\lambda I & B_i \\
         C_i & D_i
-        \end{array}\right]=n_i+p_i, \quad \forall \quad \lambda \in \sigma(S) $$ 
+        \end{array}\right]=n_i+p_i, \quad \forall \lambda \in \sigma(S) $$ 
 
-    其中 $\sigma(S)$ 表示 $S$ 的谱(spectrum)。 
+    其中 $\sigma(S)$ 表示 $S$ 的谱(spectrum)。 当$p_i>m_i$时，传零条件不会成立，所以此时OR问题也不能使用基于内模法的分散式控制器来求解。
+
+**本文的结果：** 
+* 采用一种分布式控制手段来解决问题，克服了第二类子系统无法获取外部信号 $v$ 带来的设计困难；
+
+
