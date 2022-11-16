@@ -1,5 +1,12 @@
 ### (TAC2012) Cooperative Output Regulation of Linear Multi-Agent Systems, Youfeng Su and Jie Huang
 
+### 论文特点与研究内容
+
+* 考虑了两类子系统：一类能够接触外系统，另一类无法接触外系统
+
+
+
+### 全文梗概
 #### 1. 引言
 **线性多智能体系统模型**：
 
