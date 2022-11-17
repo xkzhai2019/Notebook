@@ -2,11 +2,14 @@
 
 ### 论文特点与研究内容
 
-* 考虑了两类子系统：一类能够接触外系统，另一类无法接触外系统
+* 考虑了两类子系统：一类能够接触外系统，另一类无法接触外系统；
+* 由于有一类子系统无法接触外系统，因此，无法使用经典的前馈法；
+* 而内模法需要满足传零条件，当输出维数高于输入维数时，无法求解COR问题；
+* 研究了一种基于外系统分布式观测器的全信息分布式控制方法；
+* 所解决的问题能够包含一些一致性问题作为特例；
 
 
 ### 图论术语
-
 * **有向图：** $\mathcal{G} = (\mathcal{V},\epsilon)$，其中 $\mathcal{V}=\left\{ 1,2,...,N\right\}$ 为节点集合，$\epsilon \subset \mathcal{V} \times \mathcal{V}$ 表示边集合，从节点 $i$ 到 $j$ 的边记为 $(i,j)$； 
 
 * **有向树：** 一种有向图，图中除了根节点没有父节点，其余节点均有一个确定的父节点，且从根节点出发每个子节点都是可达的（reachable）；
@@ -17,11 +20,18 @@
 
 * **有向生成树：** 是子图，也是有向树，且 $\mathcal{V}_s = \mathcal{V}$；
 
-
 * 有向图 $\mathcal{G}$ 包含一条有向生成树 当且仅当 $\mathcal{G}$ 至少有一个节点能够达到其余每一个节点。
 
 * **加权邻接矩阵：** $\mathcal{A} = [a_{ij}] \in \mathbb{R}^{N\times N}$，其中 $a_{ii}=0$； $a_{ij}>0$ 当且仅当 $(j,i)\in \epsilon$；
-* **拉普拉斯矩阵：** $\mathcal{L} = [l_{ij}] \in \mathbb{R}^{N\times N}$，其中 $l_{ii}=\sum_{j=1}^Na_{ij}$； $l_{ij}= - a_{ij}$ 
+
+* **入度矩阵：** $D=diag \left\{ D_1,\cdots,D_N \right\}$，其中 $D_i = \sum_{j=1}^Na_{ij}$；
+·
+* **拉普拉斯矩阵：** $\mathcal{L} = [l_{ij}] \in \mathbb{R}^{N\times N}$，其中 $l_{ii}=\sum_{j=1}^Na_{ij}$； $l_{ij}= - a_{ij}$， $\mathcal{L} = D - \mathcal{A}$；
+* 拉普拉斯矩阵 $\mathcal{L} = [l_{ij}] \in \mathbb{R}^{N\times N}$ 至少有一个特征值为零，且非零特征值均具有正实部；
+* 拉普拉斯矩阵 $\mathcal{L} = [l_{ij}] \in \mathbb{R}^{N\times N}$ 有一个特征值为零，其余 $N-1$ 个特征值均具有正实部 当且仅当有向图 $\mathcal{G}$ 包含一棵有向生成树[1]；
+ 
+* 对任意一个矩阵 $\mathcal{A} = [a_{ij}] \in \mathbb{R}^{N\times N}$，其中 $a_{ii}=0$； $a_{ij}>0$ 总能定义一个有向图 $\mathcal{G} = (\mathcal{V},\epsilon)$ 使得 $\mathcal{A}$ 成为其邻接矩阵。
+
 
 ### 全文梗概
 #### 1. 引言
@@ -57,4 +67,7 @@ $$ \dot{v}=Sv \tag{1.2} $$
 * 采用一种分布式控制手段来解决问题，克服了第二类子系统无法获取外部信号 $v$ 带来的设计困难；
 
 
+
+### 参考文献
+[1] Ren W, Beard R W. Consensus seeking in multiagent systems under dynamically changing interaction topologies[J]. IEEE Transactions on automatic control, 2005, 50(5): 655-661.
 
