@@ -5,6 +5,23 @@
 * 考虑了两类子系统：一类能够接触外系统，另一类无法接触外系统
 
 
+### 图论术语
+
+* **有向图：** $\mathcal{G} = (\mathcal{V},\epsilon)$，其中 $\mathcal{V}=\left\{ 1,2,...,N\right\}$ 为节点集合，$\epsilon \subset \mathcal{V} \times \mathcal{V}$ 表示边集合，从节点 $i$ 到 $j$ 的边记为 $(i,j)$； 
+
+* **有向树：** 一种有向图，图中除了根节点没有父节点，其余节点均有一个确定的父节点，且从根节点出发每个子节点都是可达的（reachable）；
+
+* **节点 $i_1$ 到节点 $i_{k+1}$ 可达：** 存在一条路径 $(i_1,i_2)$, $(i_2,i_3)$, $\cdots $, $(i_k, i_{k+1})$；
+
+* **子图：** $\mathcal{G}_s = (\mathcal{V}_s,\epsilon_s)$ 称作 $\mathcal{G} = (\mathcal{V},\epsilon)$ 的子图，如果 $\mathcal{V}_s \subset \mathcal{V}$ ，且 $\epsilon_s \subset \epsilon \cap \mathcal{V}_s \times \mathcal{V}_s$ ；
+
+* **有向生成树：** 是子图，也是有向树，且 $\mathcal{V}_s = \mathcal{V}$；
+
+
+* 有向图 $\mathcal{G}$ 包含一条有向生成树 当且仅当 $\mathcal{G}$ 至少有一个节点能够达到其余每一个节点。
+
+* **加权邻接矩阵：** $\mathcal{A} = [a_{ij}] \in \mathbb{R}^{N\times N}$，其中 $a_{ii}=0$； $a_{ij}>0$ 当且仅当 $(j,i)\in \epsilon$；
+* **拉普拉斯矩阵：** $\mathcal{L} = [l_{ij}] \in \mathbb{R}^{N\times N}$，其中 $l_{ii}=\sum_{j=1}^Na_{ij}$； $l_{ij}= - a_{ij}$ 
 
 ### 全文梗概
 #### 1. 引言
@@ -38,5 +55,6 @@ $$ \dot{v}=Sv \tag{1.2} $$
 
 **本文的结果：** 
 * 采用一种分布式控制手段来解决问题，克服了第二类子系统无法获取外部信号 $v$ 带来的设计困难；
+
 
 
